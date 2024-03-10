@@ -92,7 +92,7 @@ public class SwerveModule extends SubsystemBase {
             m_TurnEncoderInput = new DigitalInput(turnEncoderPWMChannel);
             m_TurnPWMEncoder = new DutyCycle(m_TurnEncoderInput);
             turnEncoderOffset = turnOffset;
-            SmartDashboard.putData("TurnPWMEncoder", m_TurnPWMEncoder);
+            //SmartDashboard.putData("TurnPWMEncoder", m_TurnPWMEncoder);
             
 
 
@@ -188,10 +188,12 @@ public class SwerveModule extends SubsystemBase {
                 signedDiff = ((2 * Math.PI) - modDiff); //full circle minus the angle
                 if (desiredAngle > currentAngle) signedDiff = signedDiff * -1; // get the direction that was lost calculating raw diff
             }
+
             else {
                 signedDiff = modDiff;
                 if (currentAngle > desiredAngle) signedDiff = signedDiff * -1;
             }
+            
             return signedDiff;
         }
 }
