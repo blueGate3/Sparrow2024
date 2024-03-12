@@ -76,8 +76,8 @@ public class Drivetrain extends SubsystemBase {
     // Locations pf each swerve module relative to the center of the robot
     private final Translation2d m_frontRightLocation = new Translation2d( 0.37717, 0.37717); //used to be .2666666666 forever. and ever. amen. this is set for 11 not a0.5 inches
     private final Translation2d m_frontLeftLocation = new Translation2d(0.37717,  -0.37717);
-    private final Translation2d m_backLeftLocation = new Translation2d(-0.37717,  0.37717);
-    private final Translation2d m_backRightLocation = new Translation2d( -0.37717, -0.37717);
+    private final Translation2d m_backLeftLocation = new Translation2d(-0.37717,  -0.37717);
+    private final Translation2d m_backRightLocation = new Translation2d( -0.37717, 0.37717);
  
     // Constructor for each swerve module
     private final SwerveModule m_frontRight = new SwerveModule(2, 1, 12, 0.4024186725604668+0.001694975042374376, false, false); //
@@ -192,8 +192,8 @@ public class Drivetrain extends SubsystemBase {
         if (!defenseHoldingMode) {
             m_frontRight.setDesiredState(swerveModuleStates[0]);
             m_frontLeft.setDesiredState(swerveModuleStates[1]);
-            m_backLeft.setDesiredState(swerveModuleStates[3]);//NOTE FIX THESE TWO BACK ONES LATER WE MAY NEED THESE IN RIGHT ORDER IN AUTO.
-            m_backRight.setDesiredState(swerveModuleStates[2]);
+            m_backLeft.setDesiredState(swerveModuleStates[2]);//NOTE FIX THESE TWO BACK ONES LATER WE MAY NEED THESE IN RIGHT ORDER IN AUTO.
+            m_backRight.setDesiredState(swerveModuleStates[3]);
         } 
         else {
              m_backLeft.setDesiredState(new SwerveModuleState(0, new Rotation2d(3*(Math.PI / 4))));
@@ -231,8 +231,8 @@ public class Drivetrain extends SubsystemBase {
         SwerveModuleState[] moduleStates = m_kinematics.toSwerveModuleStates(chassisSpeeds);
         m_frontRight.setDesiredState(moduleStates[0]);
         m_frontLeft.setDesiredState(moduleStates[1]);
-        m_backLeft.setDesiredState(moduleStates[3]);
-        m_backRight.setDesiredState(moduleStates[2]);
+        m_backLeft.setDesiredState(moduleStates[2]);
+        m_backRight.setDesiredState(moduleStates[3]);
         
     }
     /**
@@ -241,8 +241,8 @@ public class Drivetrain extends SubsystemBase {
     public void updateOdometry() { //it may have to be in the right order
         positions[0] = new SwerveModulePosition(m_frontLeft.getDifferentState().speedMetersPerSecond, m_frontLeft.getState().angle);
         positions[1] = new SwerveModulePosition(m_backLeft.getDifferentState().speedMetersPerSecond, m_backLeft.getState().angle);
-        positions[3] = new SwerveModulePosition(m_backRight.getDifferentState().speedMetersPerSecond, m_backRight.getState().angle);
-        positions[2] = new SwerveModulePosition(m_frontRight.getDifferentState().speedMetersPerSecond, m_frontRight.getState().angle);
+        positions[2] = new SwerveModulePosition(m_backRight.getDifferentState().speedMetersPerSecond, m_backRight.getState().angle);
+        positions[3] = new SwerveModulePosition(m_frontRight.getDifferentState().speedMetersPerSecond, m_frontRight.getState().angle);
        
 
         Pose2d m_distance = m_odometry.update(navx.getRotation2d(), positions);        
