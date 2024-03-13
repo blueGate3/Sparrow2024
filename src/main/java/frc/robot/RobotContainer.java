@@ -40,6 +40,7 @@ public class RobotContainer {
     //public final IntakeSubsystem intakeSubsystem = new IntakeSubsystem(m_condeDetector);
     //public final DriveSubsystem driveSubsystem = new DriveSubsystem();
     public final SmartDashboardUpdater smartDashboardUpdater = new SmartDashboardUpdater();
+    
 
     
     
@@ -60,6 +61,7 @@ public class RobotContainer {
         setDefaultCommands ();
         configureButtonBindings();
        
+        NamedCommands.registerCommand("ResetNavxFieldHeading", drivetrain.resetNavxMark(0));//if this offsets by 90, like forward is left or right, go into drivetrain and delete the part about initial angle, that may be the issue. 
     }
     
 
