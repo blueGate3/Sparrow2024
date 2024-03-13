@@ -74,11 +74,12 @@ public class Drivetrain extends SubsystemBase {
     // private final SwerveModule m_backRight  = new SwerveModule(7, 8, 13, 0.921);
     //i am so dumb im a failure 
     // Locations pf each swerve module relative to the center of the robot
-    private final Translation2d m_frontRightLocation = new Translation2d( 0.37717, 0.37717); //used to be .2666666666 forever. and ever. amen. this is set for 11 not a0.5 inches
-    private final Translation2d m_frontLeftLocation = new Translation2d(0.37717,  -0.37717);
-    private final Translation2d m_backLeftLocation = new Translation2d(-0.37717,  -0.37717);
-    private final Translation2d m_backRightLocation = new Translation2d( -0.37717, 0.37717);
- 
+    private final Translation2d m_frontRightLocation = new Translation2d( 0.2667, 0.2667); //used to be .2666666666 forever. and ever. amen. this is set for 11 not a0.5 inches
+    private final Translation2d m_frontLeftLocation = new Translation2d(0.2667,  -0.2667);
+    private final Translation2d m_backLeftLocation = new Translation2d(-0.2667,  -0.2667);
+    private final Translation2d m_backRightLocation = new Translation2d( -0.2667, 0.2667); //Was using hypotenuse before, but I flipped negatives to test. This is how I think it's SUPPOSED to be done, not sure though. Try making this double negative and the one above it a y-positive only if it isnt aligned. 
+    //also try doubling it if it's still off, thats what last year has it as so 8| (thats a face for when i confuse myself).
+
     // Constructor for each swerve module
     private final SwerveModule m_frontRight = new SwerveModule(2, 1, 12, 0.4024186725604668+0.001694975042374376, false, false); //
     private final SwerveModule m_frontLeft = new SwerveModule(4, 3, 13, 0.929912523247813+0.017896575447414385, true, false); //.8100
