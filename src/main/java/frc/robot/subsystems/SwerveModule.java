@@ -63,10 +63,12 @@ public class SwerveModule extends SubsystemBase {
         public SwerveModule(int driveMotorChannel, int turningMotorChannel, int turnEncoderPWMChannel, double turnOffset, boolean driveInverted, boolean turnInverted) {
             
             
-            
-            if(turnOffset <= 0){
-                turnOffset = 1 + turnOffset; //this is because we may get a negative, and so we add the negative to the 1 to get the positive value.
-            }
+            //try this
+
+
+            // if(turnOffset <= 0){
+            //     turnOffset = 1 + turnOffset; //this is because we may get a negative, and so we add the negative to the 1 to get the positive value.
+            // }
 
             // can spark max motor controller objects
             m_driveMotor = new CANSparkMax(driveMotorChannel, CANSparkLowLevel.MotorType.kBrushless);
@@ -78,7 +80,7 @@ public class SwerveModule extends SubsystemBase {
 
             m_drivePID = m_driveMotor.getPIDController();
             m_drivePID.setSmartMotionAccelStrategy(AccelStrategy.kTrapezoidal, 0);
-            m_drivePID.setSmartMotionMaxAccel(0.2, 0);// oooohhhhhh see what happens if we run the hell up on the max accell
+            m_drivePID.setSmartMotionMaxAccel(0.2, 0);// oooohhhhhh see what happens if we run the hell up on the max accel
             m_drivePID.setReference(0, CANSparkMax.ControlType.kSmartMotion);
 
             //spark max built-in encoder

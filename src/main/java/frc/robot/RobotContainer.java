@@ -93,9 +93,7 @@ public class RobotContainer {
 
     public Command driveAutoPath() {
         
-    //PathPlannerPath path = PathPlannerPath.fromPathFile("autoTest"); //what it used to be, now trying autotest.path
-    PathPlannerPath path = PathPlannerPath.fromPathFile("TopBlue-GoToFirst+Shoot"); //needs the path name not the auto 
-    return AutoBuilder.followPath(path);
+    return new PathPlannerAuto("test");
      
 
         
