@@ -21,7 +21,7 @@
 //     public void setArmPosition(double pos){ 
 //         double currentRelativePosition = armMotorEncoder.getPosition()*gearRatio; // can change to sparkpid
 //         double voltage = m_PIDController.calculate(currentRelativePosition, pos);
-//         armMotor.set(voltage);
+//         armMotor.set(voltage);b  
 //         m_PIDController.setTolerance(.5);
 //     }
     
