@@ -42,7 +42,7 @@ public class SwerveModule extends SubsystemBase {
 
         private final RelativeEncoder m_driveEncoder;
         private final DigitalInput m_TurnEncoderInput;
-        public final DutyCycle m_TurnPWMEncoder;
+        private final DutyCycle m_TurnPWMEncoder;
         
         private double turnEncoderOffset;
         private double encoderBias = 0; //encoder stuff for rotation
@@ -104,7 +104,6 @@ public class SwerveModule extends SubsystemBase {
             m_turningPIDController.enableContinuousInput(-Math.PI, Math.PI); //this looks fun try 0 instead of pi may solve doubling issue.
             m_turningPIDController.setTolerance(0.01);
             encoderBias = m_driveEncoder.getPosition();
-            // System.out.println(m_TurnPWMEncoder.getOutput());
 
         //     System.out.println("Encoder " + Integer.toString(turnPWMChannel) + " "+ (m_TurnPWMEncoder.getOutput()));
         //     SmartDashboard.putNumber("ilikefood", turnEncoderOffset - m_TurnPWMEncoder.getOutput());
@@ -167,7 +166,7 @@ public class SwerveModule extends SubsystemBase {
         public double getTurnEncoderRadians() {
             double appliedOffset = (m_TurnPWMEncoder.getOutput() - turnEncoderOffset) % 1;
             //if (turnPWMChannel == 18) { 
-                //System.out.println("Encoder " + Integer.toString(turnPWMChannel) + " "+ (m_TurnPWMEncoder));
+                System.out.println("Encoder " + Integer.toString(turnPWMChannel) + " "+ (m_TurnPWMEncoder));
                 
             //} 
             

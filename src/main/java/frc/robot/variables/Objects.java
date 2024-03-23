@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import com.revrobotics.*;
 
+import frc.robot.SmartDashboardUpdater;
+
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DutyCycle;
