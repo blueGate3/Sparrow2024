@@ -43,7 +43,7 @@ public class Drivetrain extends SubsystemBase {
     
     // kMaxSpeed was 2 AND kmaxangularspeed was pi/3 (before testing [district champs])
     // SOLID SPEEDS 3.25 M/S /AND PI/2.25 ROT/S
-    public static final double kMaxSpeed = 3.25; // 3.68 meters per second or 12.1 ft/s (max speed of SDS Mk3 with Neo motor)
+    public static final double kMaxSpeed =  5; // 3.68 meters per second or 12.1 ft/s (max speed of SDS Mk3 with Neo motor)
     public static final double kMaxAngularSpeed = Math.PI; // 1/2 rotation per second
 
     public static final AHRS navx = new AHRS();
@@ -108,7 +108,7 @@ public class Drivetrain extends SubsystemBase {
     
     // Constructor
     public Drivetrain() {
-        // System.out.println(m_backLeft.m_TurnPWMEncoder.getOutput());
+        System.out.println(m_backLeft.m_TurnPWMEncoder.getOutput());
         m_initialStates = new SwerveDriveKinematics(m_frontRightLocation, m_frontLeftLocation, m_backLeftLocation, m_backRightLocation);
 
         m_odometry = new SwerveDriveOdometry(

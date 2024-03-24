@@ -58,8 +58,8 @@ public class Drive extends Command {
             // m_drivetrain.drive(xSpeed*.95, ySpeed*.85, (rot +.0001 )*.81, false, false); //final movement; sends drive values to swerve
             m_drivetrain.drive(driverXStick, -driverYStick, -(driverRotateStick)/2, true, false);//Changed rot to DriverRotateStick
         } else {
-            m_drivetrain.drive(xSpeed, ySpeed, (rot), true, false); //final movement; sends drive values to swerve AND with field relative false and the rot add ons, it felt good. 
-
+             m_drivetrain.drive(driverXStick, -driverYStick, -(driverRotateStick)/2, true, false);//Changed rot to DriverRotateStick
+        
         }
         
 
